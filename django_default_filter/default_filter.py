@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 
-class DefaultFilterMiddleware(object):
+class DefaultFilterMiddleware():
     def process_request(self, request):
         # This middleware is not for admin only
         if not request.user.is_staff:
