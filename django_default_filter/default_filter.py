@@ -2,7 +2,7 @@ import sys
 
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 class DefaultFilterMiddleware(object):
     def process_request(self, request):
