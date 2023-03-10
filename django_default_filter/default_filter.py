@@ -3,9 +3,10 @@ import sys
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.deprecation import MiddlewareMixin
 
 
-class DefaultFilterMiddleware:
+class DefaultFilterMiddleware(MiddlewareMixin):
     
     def __init__(self, get_response):
         self.get_response = get_response
