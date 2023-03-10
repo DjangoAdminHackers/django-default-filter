@@ -2,9 +2,15 @@ import sys
 
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
-class DefaultFilterMiddleware(object):
+
+class DefaultFilterMiddleware:
+    
+    def __init__(self, get_response):
+        self.get_response = get_response
+        # One-time configuration and initialization.
+
     def process_request(self, request):
         # This middleware is not for admin only
         if not request.user.is_staff:
